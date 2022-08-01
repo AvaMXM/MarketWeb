@@ -8,11 +8,12 @@
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
 </head>
 <body>
+<header class="site-header sticky-top">
 {% include 'navbar.html' %}
-<div class="container">
-    {% block content %}
-
-    {% endblock %}
-</div>
+</header>
+{% block content %}
+    <div class="container">
+    </div>
+{% endblock %}
 </body>
 </html>

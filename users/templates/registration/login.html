@@ -5,7 +5,7 @@
 
     <div class="row justify-content-center">
         <div class="col-md-8 p-5">
-            <div class="card">
+            <div class="card border-success" style="border-radius: 20px">
                 <div class="card-header">Войти на сайт</div>
                 <div class="card-body">
                     {% if form.errors %}
@@ -15,13 +15,13 @@
                     {% endif %}
 
                     {% if next %}
-                        <div class="alert alert-info" role="alert">
+                        <div class="alert alert-success" role="alert">
                             Вы обратились к странице, доступ к которой возможен только для залогиненных
                             пользователей.<br>
                             Пожалуйста, авторизуйтесь.
                         </div>
                     {% else %}
-                        <div class="alert alert-info" role="alert">
+                        <div class="alert alert-success" role="alert">
                             Пожалуйста, авторизуйтесь.
                         </div>
                     {% endif %}
@@ -30,22 +30,23 @@
                         {% csrf_token %}
                         <input type="hidden" name="next" value="{{ next }}">
                         <div class="form-group row">
-                            <label for="{{ form.username.id_for_label }}" class="col-md-4 col-form-label text-md-right">Имя
+                            <label for="{{ form.username.id_for_label }}" class="col-md-3 col-form-label text-md-right">Имя
                                 пользователя</label>
-                            <div class="col-md-6">
+                            <div class="col-md-8">
                                 {{ form.username|addclass:"form-control" }}
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label for="{{ form.password.id_for_label }}" class="col-md-4 col-form-label text-md-right">Пароль</label>
-                            <div class="col-md-6">
+                            <label for="{{ form.password.id_for_label }}"
+                                   class="col-md-3 col-form-label text-md-right mt-3">Пароль</label>
+                            <div class="col-md-8 mt-3">
                                 {{ form.password|addclass:"form-control" }}
                             </div>
                         </div>
 
-                        <div class="col-md-6 offset-md-4">
-                            <button type="submit" class="btn btn-primary">
+                        <div class="col-6 mt-4">
+                            <button type="submit" class="btn btn-success btn-lg">
                                 Войти
                             </button>
                             <a href="{% url 'password_reset' %}" class="btn btn-link">
