@@ -2,18 +2,26 @@
 {% block content %}
     <section class="vh-100" style="background-color: rgba(0,0,0,0.8)">
         <div class="text-center">
-            <div class="container p-5">
+            <div class="container-fluid p-3">
                 <div class="row justify-content-center align-items-center h-100">
                     <div class="col-12 col-md-9 col-lg-7 col-xl-6 mt-4">
-                        <div class="card">
+                        <div class="card border" style="border-radius: 15px">
                             <div class="card-header">
                                 <h2>Ваш аккаунт</h2>
                             </div>
                             <div class="card-body">
-                                <div class="form-group row mt-3">
-                                    <label>Имя пользователя</label>
-                                    <div class="col-md-8">
-                                        <p>{{ user.username }}</p>
+                                <div class="d-flex justify-content-center">
+                                    <div class="me-2">
+                                        <h5>Имя пользователя:</h5>
+                                        <h5 class="mt-4" style="margin-right: 63px">Email адресс:</h5>
+                                        <h5 class="mt-4" style="margin-right: 12px">Изменить пароль:</h5>
+                                    </div>
+                                    <div>
+                                        <h5>{{ user.username }}</h5>
+                                        <h5 class="mt-4">{{ user.email }}</h5>
+                                        <h5 class="mt-4">
+                                            <a href="{% url 'password_change' %}">Изменить</a>
+                                        </h5>
                                     </div>
                                 </div>
                             </div>
